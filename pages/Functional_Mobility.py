@@ -26,7 +26,7 @@ def plot_tug_graph(gender,age, last_tug ):
     colors = ['r', 'y', 'g']
 
     # Create the plot
-    fig1, ax = plt.subplots(figsize=(8, 4))
+    fig1, ax = plt.subplots(figsize=(6, 4))
 
     if gender == 'female' or gender == "Female" or gender == 'F' or gender == 'f':
         # Define the categories based on the risk thresholds
@@ -59,11 +59,11 @@ fig, ax = plot_tug_graph('male', 25, 8.9)
 st.title('Functional Mobility')
 
 cola, colb = st.columns([0.5,0.5])
-cola.line_chart(data=df, x='Time', y='Step Count', x_label='Time (s)', y_label='Cadence', height=200)
+cola.line_chart(data=df, x='Counter', y='Step Count', x_label='Time (s)', y_label='Cadence', height=300)
 colb.pyplot(fig=fig)
 
 cola2, colb2 = st.columns([0.5,0.5])
-cola2.line_chart(data=df, x='Time', y='Distance Travelled', x_label='Time (s)', y_label='Gait Speed')
-colb2.line_chart(data=df, x='Time', y=['Left Flexion Angle','Right Flexion Angle'], x_label='Time (s)', y_label='Angles (Degrees)')
+cola2.line_chart(data=df, x='Counter', y='Distance Travelled', x_label='Time (s)', y_label='Gait Speed')
+colb2.line_chart(data=df, x='Counter', y=['Left Flexion Angle','Right Flexion Angle'], x_label='Time (s)', y_label='Angles (Degrees)')
 
-st.line_chart(data=df, x='Time', y=['Step Length','Step Width', 'Stride Length'], x_label='Time (s)', y_label='Distance (cm)')
+st.line_chart(data=df, x='Counter', y=['Step Length','Step Width', 'Stride Length'], x_label='Time (s)', y_label='Distance (cm)')
